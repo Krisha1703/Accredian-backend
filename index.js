@@ -8,10 +8,12 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: process.env.URL || 'http://localhost:3000',
+    origin: process.env.URL?.split(',') || ['http://localhost:3000'],
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
 }));
+
 
 console.log(process.env.URL);
 app.use(express.json());
