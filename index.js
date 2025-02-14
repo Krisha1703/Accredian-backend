@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import referralRoutes from './src/routes/referralRoutes.js';
+import referralRoutes from './src/routes/referral-routes.js';
 import cors from 'cors';
 
 dotenv.config();

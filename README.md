@@ -54,23 +54,37 @@ This is the **backend** for the **Refer & Earn landing page** built using **Node
    npm start
    ```
 
-5. **Build for production ⚡:**
-   ```bash
-   npm run build
-   npm start
-   ```
-
 - For **frontend** setup, please visit https://github.com/Krisha1703/Accredian-frontend.
 
 ## 🔄 **API Endpoints**
 
-1. **POST /api/referrals**
+1. **POST /api/referrals**  
    Create a new referral. This endpoint validates that the referrer is not the same as the referee and that the same course has not been referred multiple times to the same person.
 
-  ### Request Body:
+   ### Request Body:
 
     ```json
-        {
+    {
+        "yourFirstName": "John",
+        "yourLastName": "Doe",
+        "yourEmail": "john.doe@example.com",
+        "yourPhone": "1234567890",
+        "friendFirstName": "Jane",
+        "friendLastName": "Doe",
+        "friendEmail": "jane.doe@example.com",
+        "friendPhone": "0987654321",
+        "major": "Robotics",
+        "nicheCourse": "AI"
+    }
+    ```
+
+   ### Response:
+
+    ```json
+    {
+        "message": "Referral created and email sent successfully",
+        "newReferral": {
+            "id": 1,
             "yourFirstName": "John",
             "yourLastName": "Doe",
             "yourEmail": "john.doe@example.com",
@@ -79,32 +93,13 @@ This is the **backend** for the **Refer & Earn landing page** built using **Node
             "friendLastName": "Doe",
             "friendEmail": "jane.doe@example.com",
             "friendPhone": "0987654321",
-            "major": "Computer Science",
-            "nicheCourse": "Data Structures"
+            "major": "Robotics",
+            "nicheCourse": "AI",
+            "createdAt": "2023-12-01T00:00:00Z"
         }
+    }
     ```
 
-     ### Response:
-
-    ```json
-        {
-            "message": "Referral created and email sent successfully",
-            "newReferral": {
-                "id": 1,
-                "yourFirstName": "John",
-                "yourLastName": "Doe",
-                "yourEmail": "john.doe@example.com",
-                "yourPhone": "1234567890",
-                "friendFirstName": "Jane",
-                "friendLastName": "Doe",
-                "friendEmail": "jane.doe@example.com",
-                "friendPhone": "0987654321",
-                "major": "Computer Science",
-                "nicheCourse": "Data Structures",
-                "createdAt": "2023-12-01T00:00:00Z"
-            }
-        }
-    ```
 2. **Error Handling**
 Proper error handling is implemented, and meaningful messages are returned for different failure scenarios such as:
 
