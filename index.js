@@ -15,7 +15,6 @@ app.use(cors({
 }));
 
 
-console.log(process.env.URL);
 app.use(express.json());
 app.use('/api', referralRoutes);
 
